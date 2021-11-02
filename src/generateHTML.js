@@ -1,3 +1,4 @@
+// Create general HTML
 const createHTML = function (employeeProfiles) {
   return `
     <!DOCTYPE html>
@@ -35,6 +36,7 @@ const createHTML = function (employeeProfiles) {
   `;
 };
 
+// Add team HTML to general
 generateHTML = function (data) {
   profileArray = [];
 
@@ -67,6 +69,7 @@ generateHTML = function (data) {
   return createTeam;
 };
 
+// Manager HTML card
 const managerCard = function (manager) {
   return `
         <div class="col-4 mt-3">
@@ -86,6 +89,7 @@ const managerCard = function (manager) {
     `;
 };
 
+// Engineer HTML card
 const engineerCard = function (engineer) {
   return `
     <div class="col-4 mt-3">
@@ -105,6 +109,7 @@ const engineerCard = function (engineer) {
     `;
 };
 
+// Intern HTML card
 const internCard = function (intern) {
   return `
     <div class="col-4 mt-3">

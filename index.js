@@ -1,7 +1,9 @@
+// Connect team profiles
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+// Connect to page creation
 const generateHTML = require("./src/generateHTML");
 
 
@@ -10,6 +12,8 @@ const inquirer = require("inquirer");
 
 const teamArr = [];
 
+
+// Manager prompts
 const managerQuestions = () => {
   return inquirer
     .prompt([
@@ -76,6 +80,8 @@ const managerQuestions = () => {
     });
 };
 
+
+// Add new employees - Engineer or Intern
 const addNew = () => {
   console.log(`
     =================
@@ -188,6 +194,7 @@ const addNew = () => {
     });
 };
 
+// Write and create HTML file and display success in terminal
 const writeFile = (data) => {
   fs.writeFile("./dist/team.html", data, (err) => {
     if (err) {
@@ -201,6 +208,7 @@ const writeFile = (data) => {
   });
 };
 
+// Function call
 managerQuestions()
   .then(addNew)
   .then((teamArr) => {
