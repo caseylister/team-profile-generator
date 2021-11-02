@@ -98,7 +98,7 @@ const engineerCard = function (engineer) {
             <div class="card-body">
                 <p>ID #: ${engineer.id}</p>
                 <p>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p>GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+                <p>GitHub: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
             </div>
         </div>
     </div>  
