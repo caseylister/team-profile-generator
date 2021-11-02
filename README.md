@@ -1,12 +1,12 @@
 # Team Profile Generator
   
-    ## Contents
+  ## Contents
   
-    * [Description](#description)
-    * [Installation](#installation)
-    * [Contributions](#contributions)
-    * [Tests](#tests)
-    * [Questions](#questions)
+   * [Description](#description)
+   * [Installation](#installation)
+   * [Contributions](#contributions)
+   * [Tests](#tests)
+   * [Questions](#questions)
     
     ## [Description](#Contents)
   
