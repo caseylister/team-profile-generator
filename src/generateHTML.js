@@ -72,7 +72,24 @@ generateHTML = function(data) {
 
 };
 
-
+const managerCard = function(manager) {
+    return `
+        <div class="col-4 mt-3">
+            <div class="card h-100" style="width: 18rem;">
+                <div class="card-header">
+                    <h3>${manager.name}</h3>
+                    <h4>Manager</h4><i class="material-icons">corporate_fare</i>
+                </div>
+                
+                <div class="card-body">
+                    <p>ID #: ${manager.id}</p>
+                    <p>Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
+                    <p>Office: ${manager.officeNumber}</p>
+                </div>
+            </div>
+        </div>            
+    `;
+}
 
 
 
