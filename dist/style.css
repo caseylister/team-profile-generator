@@ -1,0 +1,31 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #c2d9ff;
+}
+
+#navbar{
+    color: white;
+    background-color: #32486b;
+    margin-bottom: 30px;
+}
+
+#navbar-text{
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.card-header {
+    color: white;
+    background-color: #32486b;
+}
+
+.card-body {
+    color: #32486b;
+    background-color: white;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 100px auto;
+}
