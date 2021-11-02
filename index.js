@@ -2,10 +2,13 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+const generateHTML = require("./src/generateHTML");
+
+
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const teamArray = [];
+const teamArr = [];
 
 const managerQuestions = () => {
   return inquirer
@@ -68,7 +71,7 @@ const managerQuestions = () => {
       const { name, id, email, officeNumber } = managerInput;
       const manager = new Manager(name, id, email, officeNumber);
 
-      teamArray.push(manager);
+      teamArr.push(manager);
       console.log(manager);
     });
 };
@@ -175,12 +178,12 @@ const addNew = () => {
         console.log(employee);
       }
 
-      teamArray.push(employee);
+      teamArr.push(employee);
 
       if (confirmAdd) {
-        return addNew(teamArray);
+        return addNew(teamArr);
       } else {
-        return teamArray;
+        return teamArr;
       }
     });
 };
@@ -200,8 +203,8 @@ const writeFile = (data) => {
 
 managerQuestions()
   .then(addNew)
-  .then((teamArray) => {
-    return generateHTML(teamArray);
+  .then((teamArr) => {
+    return generateHTML(teamArr);
   })
   .then((pageHTML) => {
     return writeFile(pageHTML);
