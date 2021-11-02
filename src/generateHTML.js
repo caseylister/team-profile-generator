@@ -1,5 +1,5 @@
-const createHTML = function(employeeProfiles) {
-    return `
+const createHTML = function (employeeProfiles) {
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -33,47 +33,42 @@ const createHTML = function(employeeProfiles) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </html>
   `;
-
 };
 
-generateHTML = function(data) {
+generateHTML = function (data) {
+  profileArray = [];
 
-    profileArray = []; 
+  for (let i = 0; i < data.length; i++) {
+    const employee = data[i];
+    const role = employee.getRole();
 
-    for (let i = 0; i < data.length; i++) {
-        const employee = data[i];
-        const role = employee.getRole(); 
+    if (role === "Manager") {
+      const manager = managerCard(employee);
 
-
-        if (role === 'Manager') {
-            const manager = managerCard(employee);
-
-            profileArray.push(manager);
-        }
-
-        if (role === 'Engineer') {
-            const engineer = engineerCard(employee);
-
-            profileArray.push(engineer);
-        }
-
-        if (role === 'Intern') {
-            const intern = internCard(employee);
-
-            profileArray.push(intern);
-        }
-        
+      profileArray.push(manager);
     }
 
-    const employeeProfiles = profileArray.join('')
+    if (role === "Engineer") {
+      const engineer = engineerCard(employee);
 
-    const createTeam = createHTML(employeeProfiles); 
-    return createTeam;
+      profileArray.push(engineer);
+    }
 
+    if (role === "Intern") {
+      const intern = internCard(employee);
+
+      profileArray.push(intern);
+    }
+  }
+
+  const employeeProfiles = profileArray.join("");
+
+  const createTeam = createHTML(employeeProfiles);
+  return createTeam;
 };
 
-const managerCard = function(manager) {
-    return `
+const managerCard = function (manager) {
+  return `
         <div class="col-4 mt-3">
             <div class="card h-100" style="width: 18rem;">
                 <div class="card-header">
@@ -91,8 +86,8 @@ const managerCard = function(manager) {
     `;
 };
 
-const engineerCard = function(engineer) {
-    return `
+const engineerCard = function (engineer) {
+  return `
     <div class="col-4 mt-3">
         <div class="card h-100" style="width: 18rem;">
             <div class="card-header">
@@ -108,8 +103,25 @@ const engineerCard = function(engineer) {
         </div>
     </div>  
     `;
-}
+};
 
-
+const internCard = function (intern) {
+  return `
+    <div class="col-4 mt-3">
+        <div class="card h-100" style="width: 18rem;">
+            <div class="card-header">
+                <h3>${intern.name}</h3>
+                <h4>Intern</h4><i class="material-icons">school</i>
+            </div>
+            
+            <div class="card-body">
+                <p>ID #: ${intern.id}</p>
+                <p>Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p>School: ${intern.school}</p>
+            </div>
+        </div>
+    </div> 
+    `;
+};
 
 module.exports = generateHTML;
